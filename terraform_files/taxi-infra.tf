@@ -14,9 +14,9 @@ data "aws_subnets" "default" {
 }
 
 resource "aws_instance" "ansible" {
-    ami                     = "ami-0c398cb65a93047f2"
-    instance_type           = "t2.micro"
-    key_name                = "taxi"
+    ami                     = "ami-0030e4319cbf4dbf2"
+    instance_type           = "t3.micro"
+    key_name                = "taxiapp"
     vpc_security_group_ids  = [aws_security_group.demo-sg.id]
     //subnet_id               = "subnet-077471d3c705ea769"
     tags                    = {
@@ -27,9 +27,9 @@ resource "aws_instance" "ansible" {
 
 
 resource "aws_instance" "jenkins_master" {
-  ami                        = "ami-0c398cb65a93047f2"
-  instance_type              = "t2.medium"
-  key_name                   = "taxi"
+  ami                        = "ami-0030e4319cbf4dbf2"
+  instance_type              = "c7i-flex.large"
+  key_name                   = "taxiapp"
   vpc_security_group_ids     = [aws_security_group.demo-sg.id]
   
   tags                       = {
@@ -40,9 +40,9 @@ resource "aws_instance" "jenkins_master" {
 }
 
 resource "aws_instance" "jenkins_slave" {
-  ami                        = "ami-0c398cb65a93047f2"
-  instance_type              = "t2.medium"
-  key_name                   = "taxi"
+  ami                        = "ami-0030e4319cbf4dbf2"
+  instance_type              = "c7i-flex.large"
+  key_name                   = "taxiapp"
   vpc_security_group_ids     = [aws_security_group.demo-sg.id]
   
   tags                       = {
